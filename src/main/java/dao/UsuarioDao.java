@@ -1,8 +1,12 @@
 package dao;
 
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import entidad.Usuario;
+import resources.Config;
 
 public class UsuarioDao {
 
@@ -10,6 +14,7 @@ public class UsuarioDao {
 	
 	public void Add(Usuario user)
 	{
+		
 		config = new ConfigHibernate();
 		Session session= config.abrirConexion();
 		
@@ -19,6 +24,7 @@ public class UsuarioDao {
 	    
 	    session.getTransaction().commit();    
 		config.cerrarSession();
+
 	}
 	
 	public Usuario ReadOne(String nombreUsuario)

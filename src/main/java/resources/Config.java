@@ -3,6 +3,8 @@ package resources;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import dao.ConfigHibernate;
+import dao.UsuarioDao;
 import entidad.Usuario;
 import negocio.UsuarioNegocio;
 
@@ -17,6 +19,16 @@ public class Config {
 	@Bean
 	public UsuarioNegocio usuarioNegocio() {
 		return new UsuarioNegocio();
+	}
+	
+	@Bean
+	public UsuarioDao usuarioDao() {
+		return new UsuarioDao();
+	}
+	
+	@Bean
+	public ConfigHibernate config() {
+		return new ConfigHibernate();
 	}
 	
 }
